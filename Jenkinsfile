@@ -1,6 +1,5 @@
 pipeline {
   agent any
-
   stages {
     stage('Checkout') {
       steps {
@@ -25,5 +24,6 @@ pipeline {
         sh 'node index.js &'
       }
     }
+
   }
 }
