@@ -1,34 +1,21 @@
 pipeline {
-  agent {
-    node {
-      label 'Node'
-    }
+    agent any
 
-  }
-  stages {
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/vishnus1793/Jenkins-Node'
-      }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
     }
-
-    stage('Install') {
-      steps {
-        sh 'npm install'
-      }
-    }
-
-    stage('Test') {
-      steps {
-        sh 'npx jest'
-      }
-    }
-
-    stage('Deploy') {
-      steps {
-        sh 'node index.js &'
-      }
-    }
-
-  }
 }
